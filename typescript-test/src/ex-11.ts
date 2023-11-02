@@ -7,10 +7,30 @@ type Student = {
   age?: number;
   email: string;
   address?: string;
-};
+}
 
 //1. Skapa en typ PartialStudent som representerar ett objekt där alla fält i Student är valfria.
 
+
+function updateStudent(student: Student, fieldsToUpdate: Partial<Student>) {
+  return { ...student, ...fieldsToUpdate };
+}
+ 
+const student1 = {
+  id: 23,
+  firstName: 'kunga',
+  lastName: 'kungen',
+  age: 57,
+  email: 'kungen@kungen.se',
+  address: 'kungsgat10'
+
+
+};
+ 
+const todo2 = updateStudent(student1, {
+  id: 34,
+  firstName: 'katt',
+});
 //2. Skapa en typ RequiredStudent där alla fält i Student ska vara obligatoriska.
 
 //3. Skapa en typ StudentWithoutAddress som är lik Student, men utan address-fältet.
